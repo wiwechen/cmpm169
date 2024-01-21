@@ -2,7 +2,7 @@
 <html>
 <head>
 	<!-- This title is used for tabs and bookmarks -->
-	<title>Experiment X - Subject/Topic</title>
+	<title>Experiment 2 - Vector Art, Animation & Interactivity</title>
 
 	<!-- Use UTF character set, a good idea with any webpage -->
 	<meta charset="UTF-8" />
@@ -28,7 +28,7 @@
 	<!-- Style this page by changing the CSS in ../css/site.css or css/experiment.css -->
 	<main id="content">
 		<section>
-			<h1>Experiment X - Subject/Topic</h1>
+			<h1>Experiment 2 - Vector Art, Animation & Interactivity</h1>
 			<div class="minor-section">
 				<h2>Imitate</h2>
 				<p>To develop artistic creativity in coding, it can be helpful to start by studying and learning from existing examples. This might involve reviewing code written by others, analyzing successful techniques, or even copying and modifying code to better understand how it works. By imitating and learning from existing techniques and strategies, we can gain a better understanding of what has been done before and what is possible, and identify opportunities for improvement and innovation.</p>
@@ -41,13 +41,33 @@
 			<div class="minor-section">
 				<h2>Integrate</h2>
 				<p>After learning from existing techniques and strategies, we can build upon that foundation by combining elements from different sources. This might involve combining elements from different programming languages, using libraries or frameworks in new ways, or bringing together techniques from different fields or disciplines. By integrating and combining elements from different sources, we can create something new and unique.</p>
-				<p>How did you extend the code or combine with another technique to make something new? Document this step.</p>
+				<p>After imitating the code but changing so it's shape and color, I wanted to expand on the color aspect of the square. What if when players clicked on the mouse key, 
+				the colors of the square would change to a random color. In fact, what if every single squares were a different random color. It's here where I used the color functions 
+				that p5js had to create these randomzied color squares, and by clicking on the "C" key, it can swap between all squares in one randomized color or all squares will have a randomized color.  </p>
 			</div>
 
 			<div class="minor-section">
 				<h2>Innovate</h2>
 				<p>Finally, we can introduce new or original ideas to our coding process by thinking creatively and pushing the boundaries. This might involve developing entirely new techniques or approaches, or using existing techniques in new and creative ways. By innovating and introducing new ideas, we can create art that is truly groundbreaking.</p>
-				<p>How did you use the code as a jumping off point to create something truly unique and novel? Document this step thoroughly.</p>
+				<p>The original code allowed users to use the mouse to control the position and the size of the circle. 
+					from there, I changed it to be square than circle, and added code that would change the square's color to all a random color or each square is it's own random color. 
+					Now, in order to innovate this, I wanted two things added. 1, to allow users to be in a mode where they could rotate the squares and 2, the colors will always be random 
+					whenever you start up the page, no matter what. 
+					<br> <br>
+					For the rotate, I had it set so when users would click the "r" key, it would go to the rotate state, where all the square would rotate by pi/x angle, x being 3.0. In this rotate state, users can increase
+					the x value of pi/x by 0.2 to increase the rotation by click the "e" key, while also choosing the option to decrease the x value of pi/x by the same amount by clicking the "q" key while x is greater than or equal to 3.
+					From testing this, users can create unique art by rotating the squares while also changing it's position and size with the movement of the mouse. To change back from rotate mode, users can click on the "r" key again
+					<br><br>
+					After finishing this, I went to create a true randomized seed, where no matter when you refresh it, the colors will never start the same as before. In the original code of what I imitated, 
+					the seed always started at 0, and then it would "randomly" pick a number when the mouse is clicked to get the next seed number. But that's is not truly randomized, since the seed always started at 0
+					when refreshed, so the first "random" number or color in this case would always be the same, and continue on. So, in order to get a true unique number, I used p5js's time functions it had aviable.
+					I first got the values of the current month, current day, current year, current hour, current minute, and current second. I then turn these values into strings and concat them together, following this format:
+					<u>Month+Day+Year+Hour+Minute+Second</u>. So if it was <u>01/20/2024 at 20:54:56</u>, the string that would have been concated would've been <u>1202024205456</u>. Finally, after getting the concating this string, I parse it as a number 
+					and set the randomSeed using that number. Because time can only progress forward(at least at how we know at the moment), this seed can never be used again as it'll never be 01/20/2024 at 20:54:56 again, meaning the seed will always start of differently. 
+					So unless the user manually changes their computer date and time, this mean theoritically(cause it is still random), the squares will never start of as the same color as the last refreshed page starting color. 
+
+					
+				</p>
 			</div>
 
 			<div class="minor-section">
@@ -69,7 +89,8 @@
 		</section>
 		<nav id="links">
 			<!-- Put links to other pages (including the homepage) here. -->
-			<!-- <a href="./experiment1/index.html">Experiment 1</a>   -->
+			<a href="/index.html">Homepage</a>
+			
 		</nav>
 	</main>
 </body>
