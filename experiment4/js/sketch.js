@@ -16,7 +16,11 @@ let canvasContainer;
 
 let img;
 let backgroundImg;
-let mySound;
+let walkSound;
+let bgm;
+let amplitude;
+let slime;
+let circleColor;
 
 class MyClass {
     constructor(param1, param2) {
@@ -32,7 +36,8 @@ class MyClass {
 function preload(){
     img = loadImage('img/Slime_Sprite.png');
     backgroundImg = loadImage('img/windows_xp_bliss-wide.png');
-    mySound = loadSound('assets/spit.mp3');
+    walkSound = loadSound('assets/spit.mp3');
+    bgm = loadSound('assets/Grass-Skirt-Chase.mp3');
 
 }
 
@@ -53,6 +58,12 @@ function setup() {
 
     var centerHorz = windowWidth / 2;
     var centerVert = windowHeight / 2;
+
+    bgm.loop();
+    amplitude = new p5.Amplitude();
+
+    circleColor = color(random(255), random(255), random(255));
+
     
 }
 
@@ -61,15 +72,21 @@ function draw() {
     // background(220);
     background (backgroundImg, canvasContainer.width(), canvasContainer.height());
 
-    image(img, mouseX, mouseY, 150, 150);
+    slime = image(img, mouseX, mouseY, 150, 150);
+
+    let level = amplitude.getLevel();
+    let size = map(level, 0, 1, 50, 200);
+
+    fill(circleColor);
+    ellipse(mouseX, mouseY, size, size);
+    // circleColor = color(random(255), random(255), random(255));
+    
     
 }
 
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
     // code to run when mouse is pressed
-}
-
-function mouseMoved(){
-    // console.log("Moving Mouse");
+    walkSound.play();
+    circleColor = color(random(255), random(255), random(255));
 }
