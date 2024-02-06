@@ -14,6 +14,10 @@ const VALUE2 = 2;
 let myInstance;
 let canvasContainer;
 
+let img;
+let backgroundImg;
+let mySound;
+
 class MyClass {
     constructor(param1, param2) {
         this.property1 = param1;
@@ -24,6 +28,14 @@ class MyClass {
         // code to run when method is called
     }
 }
+
+function preload(){
+    img = loadImage('img/Slime_Sprite.png');
+    backgroundImg = loadImage('img/windows_xp_bliss-wide.png');
+    mySound = loadSound('assets/spit.mp3');
+
+}
+
 
 // setup() function is called once when the program starts
 function setup() {
@@ -41,27 +53,23 @@ function setup() {
 
     var centerHorz = windowWidth / 2;
     var centerVert = windowHeight / 2;
+    
 }
 
 // draw() function is called repeatedly, it's the main animation loop
 function draw() {
-    background(220);    
-    // call a method on the instance
-    myInstance.myMethod();
+    // background(220);
+    background (backgroundImg, canvasContainer.width(), canvasContainer.height());
 
-    // Put drawings here
-    var centerHorz = canvasContainer.width() / 2 - 125;
-    var centerVert = canvasContainer.height() / 2 - 125;
-    fill(234, 31, 81);
-    noStroke();
-    rect(centerHorz, centerVert, 250, 250);
-    fill(255);
-    textStyle(BOLD);
-    textSize(140);
-    text("p5*", centerHorz + 10, centerVert + 200);
+    image(img, mouseX, mouseY, 150, 150);
+    
 }
 
 // mousePressed() function is called once after every time a mouse button is pressed
 function mousePressed() {
     // code to run when mouse is pressed
+}
+
+function mouseMoved(){
+    // console.log("Moving Mouse");
 }
